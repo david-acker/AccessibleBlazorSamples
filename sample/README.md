@@ -2,6 +2,8 @@
 
 ## Tailwind
 
+Download standalone CLI TailwindCSS here: [tailwindcss releases](https://github.com/tailwindlabs/tailwindcss/releases)
+
 ### Init
 
 ```bash
