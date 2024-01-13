@@ -1,6 +1,14 @@
 @using AccessibleBlazor.Tab
 
 @page "/tab-container"
+
+@* 
+The rendermode should be set inside the TabContainer itself,
+but there's currently a bug with the Razor compiler that results in 
+uncompilable code when using @rendermode and @typeparam together. 
+
+Issue: https://github.com/dotnet/razor/issues/9683
+*@
 @rendermode InteractiveServer
 
 <PageTitle>Tab Container</PageTitle>
