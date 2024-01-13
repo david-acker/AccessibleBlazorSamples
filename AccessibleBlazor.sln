@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccessibleBlazor", "src\AccessibleBlazor.csproj", "{5D045467-11C1-4D84-BFF7-FF566C92E55A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccessibleBlazor.Tests", "test\AccessibleBlazor.Tests.csproj", "{767146D9-DD01-4574-9FEB-12D521AC1A0B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccessibleBlazor.Sample", "sample\AccessibleBlazor.Sample.csproj", "{DD58953A-96B8-4428-9558-193B326BB62C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5D045467-11C1-4D84-BFF7-FF566C92E55A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D045467-11C1-4D84-BFF7-FF566C92E55A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D045467-11C1-4D84-BFF7-FF566C92E55A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D045467-11C1-4D84-BFF7-FF566C92E55A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{767146D9-DD01-4574-9FEB-12D521AC1A0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{767146D9-DD01-4574-9FEB-12D521AC1A0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{767146D9-DD01-4574-9FEB-12D521AC1A0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{767146D9-DD01-4574-9FEB-12D521AC1A0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD58953A-96B8-4428-9558-193B326BB62C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD58953A-96B8-4428-9558-193B326BB62C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD58953A-96B8-4428-9558-193B326BB62C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD58953A-96B8-4428-9558-193B326BB62C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

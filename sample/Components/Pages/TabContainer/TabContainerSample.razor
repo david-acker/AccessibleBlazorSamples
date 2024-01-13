@@ -1,0 +1,73 @@
+@using AccessibleBlazor.Tab
+
+@page "/tab-container"
+@rendermode InteractiveServer
+
+<PageTitle>Tab Container</PageTitle>
+
+<div class="my-8">
+    <h1 class="mb-4 text-xl font-semibold" id="sample-tab-container">Tab Container</h1>
+    <TabContainer
+        TTab="Tab"
+        ActiveTab="@(Tab.Tab1)"
+        AriaLabelledBy="sample-tab-container"
+        Components="@_components"
+        TabContainerClasses=""
+        TabListClasses="flex"
+        TabPanelContainerClasses="bg-white"
+        GetTabClasses="@GetTabClasses" />
+</div>
+
+
+@code {
+    private enum Tab
+    {
+        Tab1,
+        Tab2,
+        Tab3,
+        Tab4,
+        Tab5,
+        Tab6
+    }
+
+    private string GetTabClasses(bool isActive)
+    {
+        return "px-4 py-2 border-t-4 " +
+            (isActive ? "font-medium border-blue-500" : "text-gray-600 bg-gray-200 border-transparent");
+    }
+
+    private readonly Dictionary<Tab, TabComponentMetadata> _components = new()
+    {
+        [Tab.Tab1] = TabComponentMetadata.Create<SampleTab>(
+            new Dictionary<string, object>
+            {
+                ["Description"] = "Tab 1"
+            }),
+        [Tab.Tab2] =  TabComponentMetadata.Create<SampleTab>(
+            new Dictionary<string, object>
+            {
+                ["Description"] = "Tab 2"
+            }),
+        [Tab.Tab3] =  TabComponentMetadata.Create<SampleTab>(
+            new Dictionary<string, object>
+            {
+                ["Description"] = "Tab 3"
+            }),
+        [Tab.Tab4] =  TabComponentMetadata.Create<SampleTab>(
+            new Dictionary<string, object>
+            {
+                ["Description"] = "Tab 4"
+            }),
+        [Tab.Tab5] =  TabComponentMetadata.Create<SampleTab>(
+            new Dictionary<string, object>
+            {
+                ["Description"] = "Tab 5"
+            }),
+        [Tab.Tab6] =  TabComponentMetadata.Create<SampleTab>(
+            new Dictionary<string, object>
+            {
+                ["Description"] = "Tab 6"
+            })
+    };
+}
+

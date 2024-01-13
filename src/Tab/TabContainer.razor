@@ -1,0 +1,44 @@
+@namespace AccessibleBlazor.Tab
+
+@typeparam TTab where TTab : Enum
+
+<div class="@TabContainerClasses">
+    <div class="@TabListClasses" role="tablist" aria-labelledby="@AriaLabelledBy">
+        @foreach (var tab in _tabs)
+        {
+            var isActive = IsActiveTab(tab);
+            
+            <button aria-controls="@($"tabpanel-{tab}")"
+                    aria-selected="@(isActive.ToString().ToLower())"
+                    class="@(GetTabClasses(isActive))"
+                    id="@($"tab-{tab}")"
+                    role="tab"
+                    tabindex="@(isActive ? "0" : "-1")"
+                    @onclick=@(() => SetActiveTab(tab))
+                    @onkeydown="OnKeyDown"
+                    @onkeydown:preventDefault="@_onKeyDownPreventDefault"
+                    @ref="TabButton">
+                    @tab
+            </button>
+        }
+    </div>
+
+    <div class="@TabPanelContainerClasses">
+        @foreach (var tab in _tabs)
+        {
+            var componentType = GetTabPanelComponentType(tab);
+            var componentParameters = GetTabPanelComponentParameters(tab);
+
+            <div aria-labelledby="@($"tab-{tab}")"
+                id="@($"tabpanel-{tab}")"
+                role="tabpanel"
+                style="display: @(IsActiveTab(tab) ? "block" : "none")"
+                tabindex="0">
+                    <DynamicComponent
+                        Type="@componentType"
+                        Parameters="@(GetTabPanelComponentParameters(tab))"/>
+            </div>
+        }
+    </div>
+
+</div>
