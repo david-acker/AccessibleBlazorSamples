@@ -5,9 +5,9 @@
 ### Tabs Pattern
 
 > [!IMPORTANT]  
-> Requires an interactive render mode to set in the component where the `TabContainer`component is being used. Ideally
+> Requires an interactive render mode to set in the component where the `TabContainer` component is being used. Ideally
 > @rendermode should be called inside `TabContainer` itself, but since this component uses type parameters this is not possible
-> currently due to an outstanding but with the Razor compiler involving the usage of @rendermode and @typeparam in the same component.
+> due to an outstanding but with the Razor compiler involving the usage of @rendermode and @typeparam in the same component.
 >
 > Issue: https://github.com/dotnet/razor/issues/9683
 
