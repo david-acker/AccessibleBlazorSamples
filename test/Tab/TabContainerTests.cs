@@ -103,6 +103,26 @@ public sealed class TabContainerTests : TestContext
 		}
 	}
 
+	[Theory]
+	[InlineData(Tab.Tab1)]
+	[InlineData(Tab.Tab2)]
+	[InlineData(Tab.Tab3)]
+	public async Task OnClick_MovesFocusToClickedTab(Tab clickedTab)
+	{
+		var cut = RenderComponent(Tab.Tab1);
+
+		AssertTabElement(cut, Tab.Tab1, true);
+		AssertTabElement(cut, Tab.Tab2, false);
+		AssertTabElement(cut, Tab.Tab3, false);
+
+		await GetTabElement(cut, clickedTab)
+			.ClickAsync(new MouseEventArgs());
+
+		AssertTabElement(cut, Tab.Tab1, clickedTab == Tab.Tab1);
+		AssertTabElement(cut, Tab.Tab2, clickedTab == Tab.Tab2);
+		AssertTabElement(cut, Tab.Tab3, clickedTab == Tab.Tab3);
+	}
+
 	[Fact]
 	public async Task OnKeyPress_RightArrow_MovesFocusToNextTab()
 	{
