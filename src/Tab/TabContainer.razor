@@ -4,7 +4,7 @@
 
 <div class="@TabContainerClasses">
     <div class="@TabListClasses" role="tablist" aria-labelledby="@AriaLabelledBy">
-        @foreach (var tab in _tabs)
+        @foreach (var tab in Tabs)
         {
             var isActive = IsActiveTab(tab);
             
@@ -24,7 +24,7 @@
     </div>
 
     <div class="@TabPanelContainerClasses">
-        @foreach (var tab in _tabs)
+        @foreach (var tab in Tabs)
         {
             var componentType = GetTabPanelComponentType(tab);
             var componentParameters = GetTabPanelComponentParameters(tab);

@@ -23,14 +23,14 @@ public sealed partial class TabContainer<TTab> where TTab : Enum
     [Parameter]
     public TTab? ActiveTab { get; set; } 
 
-    private readonly TTab[] _tabs = (TTab[])Enum.GetValues(typeof(TTab));
+    private TTab[] Tabs => Components.Keys.ToArray();
     
     ElementReference TabButton { set => _tabButtons.Add(value); }
     private readonly List<ElementReference> _tabButtons = [];
 
     protected override void OnInitialized()
     {
-        ActiveTab ??= _tabs.FirstOrDefault();
+        ActiveTab ??= Tabs.FirstOrDefault();
     }
 
     private bool IsActiveTab(TTab tab)
@@ -66,8 +66,8 @@ public sealed partial class TabContainer<TTab> where TTab : Enum
     {
         _onKeyDownPreventDefault = true;
 
-        var activeTabIndex  = Array.IndexOf(_tabs, ActiveTab);
-        var tabCount = _tabs.Length;
+        var activeTabIndex  = Array.IndexOf(Tabs, ActiveTab);
+        var tabCount = Tabs.Length;
         
         int? newActiveTabIndex = e.Key switch
         {
@@ -84,7 +84,7 @@ public sealed partial class TabContainer<TTab> where TTab : Enum
             return;
         }
 
-        SetActiveTab(_tabs[newActiveTabIndex.Value]);
+        SetActiveTab(Tabs[newActiveTabIndex.Value]);
 
         var activeTabPanel = _tabButtons[newActiveTabIndex.Value];
         await activeTabPanel.FocusAsync();
